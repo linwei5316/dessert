@@ -1,0 +1,41 @@
+.product-item
+  box-shadow: 0 0 10px $colorPrimaryLight
+  .img
+    height: 315px
+    position: relative
+  .daily-selected
+    position: absolute
+    top: 0
+    left: 5px
+    font-size: 1.6rem
+    letter-spacing: 0.4rem
+    color: #fff
+    padding: 12px 8px
+    writing-mode: vertical-rl
+  .heart
+    position: absolute
+    top: 20px
+    right: 19px
+    font-size: 20px
+
+  .name-price
+    font-size: 2rem
+    display: flex
+    text-align: center
+  .name,.price
+    padding: 14px 0
+    background-color: #fff
+  .name
+    flex: 3
+    border-right: 1px solid $colorPrimaryLight
+    font-weight: 300
+  .price
+    flex: 2
+    font-weight: 500
+    &::before
+      content: "NT$ "
+  button
+    width: 100%
+    color: inherit
+    font-size: 2.4rem
+    padding: 16px 0

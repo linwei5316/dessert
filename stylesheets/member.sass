@@ -1,0 +1,114 @@
+@import '_common.sass'
+
+
+.member
+  color: $colorPrimaryLight
+  padding: 60px 0
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+.login
+  font-size: 1.6rem
+  width: 390px
+  box-sizing: border-box
+  padding-top: 40px
+  .input-content
+    padding: 0 30px
+  h2
+    font-size: 36px
+    font-weight: 400
+    text-align: center
+    color: $colorPrimaryLight
+    margin-bottom: 40px
+  .input-group
+    +size(100%,56px)
+    display: flex
+    align-items: center
+    margin-bottom: 16px
+    i
+      margin: 0 20px
+  .remember-group
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+  input[type="submit"]
+    +size(100%,65px)
+    font-size: 2.4rem
+  input[type="checkbox"]
+    margin-right: 10px
+    appearance: none
+    +size(16px)
+    background-color: #fff
+    position: relative
+    cursor: pointer
+    &:checked
+      background-color: $colorSecondary
+      &::after
+        content: ''
+        +size(10px,5px)
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%) translateY(-2px) rotate(-45deg) 
+        border-left: 3px solid $colorPrimaryDark
+        border-bottom: 3px solid $colorPrimaryDark
+
+
+
+.connect
+  color: $colorPrimaryNormal
+  padding: 40px 30px
+  width: 390px
+  box-sizing: border-box
+  .title
+    position: relative
+    margin: 0 30px
+    margin-bottom: 36px
+    &::before
+      content: ''
+      position: absolute
+      +size(100%,1px)
+      top: 50%
+      left: 0
+      background-color: $colorPrimaryNormal
+      z-index: 0
+    h3
+      margin: 0 50px
+      text-align: center
+      font-weight: 300
+      background-color: $colorPrimaryLight
+      position: relative
+      margin-bottom: 0
+      z-index: 1
+  .connect-button
+    +size(100%,56px)
+    +flexCenter
+    background-color: #fff
+    &:not(:last-child)
+      margin-bottom: 16px
+    img
+      width: calc(100% / 3)
+
+@media (max-width: 414px)
+  .member
+    padding: 0
+  .login
+    width: 100%
+    padding-top: 30px
+    &>h2
+      margin-bottom: 176px
+  .connect
+    padding: 30px
+    position: absolute
+    top: 110px
+    left: 0
+    width: 100%
+    display: flex
+    .connect-button
+      img
+        width: 80%
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: 2px
+      

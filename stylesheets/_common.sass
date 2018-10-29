@@ -1,0 +1,309 @@
+$colorPrimaryDark: #3F5D45
+$colorPrimaryNormal: #8DA291
+$colorPrimaryLight: #EAF0ED
+$colorSecondary: #FFE180
+  
+=size($w, $h:$w)
+  width: $w
+  height: $h
+=flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+  
+html
+  font-size: 10px //font base size
+  font-family: '微軟正黑體'
+  color: $colorPrimaryDark
+  background-color: #fafafa
+html,body
+  margin: 0  
+  
+*
+  // outline: 1px solid red
+
+h1,h2,h3,h4,h5,h6,p
+  margin: 0
+  margin-bottom: 0.6rem
+
+h1
+h2
+h3
+  font-size: 2.4rem
+  font-weight: 400
+h4
+h5
+h6
+  font-size: 1.6rem
+  font-weight: 400
+p
+  font-size: 1.6rem
+span
+  font-size: 1.6rem
+a
+  text-decoration: none
+  font-size: 1.6rem
+ul
+  padding: 0
+  list-style: none
+  margin: 0
+input
+  outline: none
+  background: transparent
+  border: none
+  color: inherit
+  font-size: inherit
+  letter-spacing: 0.1rem
+.wrapper
+  max-width: 1024px
+  margin: 0 auto
+  padding-top: 20px
+  background-color: #fff
+  overflow: visible
+  box-shadow: 0 0 10px rgba(black,0.2)
+
+
+// 元件性質class
+.m-0
+  margin: 0
+.mb-30
+  margin-bottom: 30px
+.mb-60
+  margin-bottom: 60px
+.mb-60-response-30
+  margin-bottom: 60px
+.mb-section-response
+  margin-bottom: 105px
+.desktop-section-padding
+  padding: 0 42px
+
+.width-100p
+  width: 100%
+
+.button,button
+  cursor: pointer
+  transition: all 0.3s
+  user-select: none
+  outline: none
+  border: none
+  &:hover
+    opacity: 0.7
+  &:active
+    opacity: 1
+
+.img
+  background-size: cover
+  background-position: center center
+
+
+.bg-dark
+  background-color: $colorPrimaryDark
+  color: #fff
+.bg-light
+  background-color: $colorPrimaryLight
+  color: $colorPrimaryDark
+.bg-secondary
+  background-color: $colorSecondary
+  color: $colorPrimaryDark
+
+
+// ------------
+
+
+// header導覽列
+header
+  display: flex
+  align-items: center
+  background-color: #fff
+  height: 60px
+  position: sticky
+  top: 0
+  left: 0
+  z-index: 999
+  .menu-button
+    +size(18px,12px)
+    padding: 5px
+    display: none
+    justify-content: center
+    align-items: stretch
+    flex-direction: column
+    &>div
+      +size(100%,2px)
+      background-color: $colorPrimaryDark
+      border-radius: 1px
+      position: relative
+      &::before,&::after
+        content: ''
+        display: block
+        +size(100%,2px)
+        background-color: $colorPrimaryDark
+        border-radius: 1px
+        position: absolute
+        left: 0
+        transition: 0.4s
+      &::before
+        top: -6px
+      &::after
+        bottom: -6px
+  .logo
+    & .img
+      +size(220px,40px)
+      background-image: url('../images/logo-all-dark.svg')
+  nav
+    +flexCenter
+    margin-left: auto
+    transition: all 0.5s
+    a
+      color: inherit
+      padding: 5px 20px
+      margin-left: 20px
+    .active
+      color: darken($colorSecondary,20)
+
+.cart-button
+  color: inherit
+  font-size: 20px
+  padding: 5px
+  margin-left: 55px
+
+
+footer
+  &>div
+    padding: 30px 122px
+  .follow
+    height: 116px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    box-sizing: border-box
+    .title
+      display: flex
+      justify-content: center
+      align-items: center
+    .logo
+      margin-right: 20px
+  .input-group
+    flex: 380px
+    flex-grow: 0
+    height: 100%
+    margin-left: auto
+    display: flex
+    font-size: 20px
+    justify-content: center
+    align-items: center
+    &>i
+      margin: 0 15px
+  input
+    +size(100%)
+    font-size: inherit
+  button
+    color: inherit
+    font-size: 16px
+    padding: 19px 24px
+
+  .info
+    position: relative
+    .logo
+      margin-bottom: 115px
+  .text
+    position: absolute
+    top: 30px
+    right: 122px
+  .community-copyright
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    .community-list
+      display: flex
+      a
+        margin-right: 8px
+        +flexCenter
+    .copyright
+      margin-bottom: 0
+      margin-left: auto
+      align-self: flex-end
+
+//通用RWD
+@media (max-width: 414px)
+  .mobile-hidden
+    display: none
+  .desktop-section-padding
+    padding: 0
+  .mb-section-response
+    margin-bottom: 120px
+  .mb-60-response-30
+    margin-bottom: 30px
+
+  // 手機版菜單
+  header
+    justify-content: space-around
+    .logo .img
+      +size(115px,20px)
+      background-image: url('../images/logotype-sm-dark.svg')
+      background-repeat: no-repeat
+      background-size: contain
+    nav
+      position: absolute
+      top: 99%
+      left: 0
+      flex-direction: column
+      +size(100%,0)
+      overflow: hidden
+      background-color: #fff
+      a
+        display: block
+        box-sizing: border-box
+        margin: 0
+        width: 100%
+        padding: 15px
+        &:not(:last-child)
+          border-bottom: 1px solid $colorPrimaryDark
+    .cart-button
+      margin: 0
+    .menu-button
+      display: flex
+      &>div
+        transition: background-color 1s
+    &.menu-open
+      nav
+        height: 160px
+      .menu-button
+        &>div
+          background-color: transparent
+          transition: initial
+          &::before,&::after
+            top: 0
+            left: 50%
+            width: 110%
+          &::before
+            transform: translateX(-50%) rotate(225deg)
+          &::after
+            transform: translateX(-50%) rotate(-225deg)
+
+  // footer
+  footer
+    &>div
+      padding: 30px
+    .follow
+      height: auto
+      flex-direction: column
+      align-items: stretch
+      // padding: 30px 0
+    .title
+      flex: 1
+    .input-group
+      flex: 1
+      margin-top: 30px
+      margin-left: 0
+
+    .info
+      .logo
+        margin-bottom: 40px
+    .community-copyright
+      flex-direction: column
+      align-items: flex-start
+      .community-list
+        margin-bottom: 23px
+      .copyright
+        margin: 0
+        align-self: initial

@@ -1,0 +1,146 @@
+@import '_common.sass'
+@import '_product-item.sass'
+
+
+//index樣式開始
+.banner
+  position: relative
+  margin-top: 20px
+  margin-bottom: 247px
+  .img
+    height: 496px
+.banner-list
+  width: 77%
+  display: flex
+  position: absolute
+  top: 416px
+  left: 50%
+  transform: translateX(-50%)
+.banner-item
+  position: relative
+  flex: 1
+  height: 256px
+  background: #000
+  +flexCenter
+  cursor: pointer
+  overflow: hidden
+  &:not(:last-child)
+    border-right: 1px solid #fff
+  .img,.mask
+    position: absolute
+    top: 50%
+    left: 50%
+    +size(120%)
+    transform: translate(-50%,-50%)
+    z-index: 0
+  .img
+    filter: blur(4px)
+    transition: all 0.3s
+  .mask
+    background-color: $colorPrimaryDark
+    transition: background-color 0.3s
+    opacity: 0.8
+  h3
+    color: #fff
+    writing-mode: vertical-rl
+    letter-spacing: 0.5rem
+    transition: color 0.3s
+    z-index: 1
+  &:hover
+    .img
+      +size(140%)
+    .mask
+      background-color: $colorSecondary
+    h3
+      color: $colorPrimaryDark    
+
+.intro
+  height: 420px
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  .text-content
+    writing-mode: vertical-rl
+    margin: 70px 0
+    opacity: 0.5
+    font-weight: 300
+    line-height: 38px
+    p
+      margin: 0
+  .img:not(.text)
+    +size(460px)
+    margin-top: -20px
+  .img.text
+    +size(89px,307px)
+    margin-top: -22px
+    flex-shrink: 0
+section.section-wanna-eat
+  display: flex
+  justify-content: center
+  height: auto
+#make-dessert
+  background-image: url('../images/lg-為什麼選擇了做甜點.svg')
+#eat-dessert
+  background-image: url('../images/lg-為什麼一定要吃甜點.svg')
+#wanna-eat
+  background-image: url('../images/lg-想吃甜點是不需要理由的.svg')
+  +size(95px,350px)
+
+.product-list
+  display: flex
+
+.product-item
+  flex: 1
+  &:not(:last-child)
+    margin-right: 20px
+// index RWD
+@media (max-width: 414px)
+  html
+    font-size: 8.33px
+  .banner
+    margin-bottom: 300px
+    .img
+      height: 277px
+  .banner-list
+    width: 100%
+    top: 100%
+  .banner-item
+    height: 180px
+  
+  .intro
+    position: relative
+    flex-direction: column
+    height: auto
+    .img:not(.text)
+      +size(100%,250px)
+      margin-top: 0
+    .img.text
+      position: absolute
+      bottom: calc(100% + 30px)
+      left: 50%
+      transform: translateX(-50%)
+      +size(196px,60px)
+    .text-content
+      writing-mode: initial
+      margin: 30px
+      line-height: 28px
+    &.intro-last
+      margin-bottom: 30px
+      flex-direction: column-reverse
+  .section-wanna-eat
+    margin-bottom: 30px
+  #make-dessert
+    background-image: url('../images/sm-橫式-為什麼選擇了做甜點.svg')
+  #eat-dessert
+    background-image: url('../images/sm-橫式-為什麼一定要吃甜點.svg')
+  #wanna-eat
+    background-image: url('../images/sm-橫式-想吃甜點是不需要理由的.svg')
+    background-size: contain
+    background-repeat: no-repeat
+    margin: 0 auto
+    +size(226px,60px)
+
+  .product-list
+    padding: 0 30px
+  .product-item:first-child
+    margin-right: 0

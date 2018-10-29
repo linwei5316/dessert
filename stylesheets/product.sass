@@ -1,0 +1,70 @@
+@import '_common.sass'
+@import '_product-item.sass'
+@import '_page-label.sass'
+
+
+.banner
+  margin-top: 20px
+  height: 496px
+  position: relative
+  margin-bottom: 60px
+  .img
+    +size(100%)
+  .text
+    width: 89px
+    position: absolute
+    top: 40px
+    right: 82px
+
+.product
+  display: flex
+  .product-menu
+    font-size: 2.4rem
+    width: 300px
+    margin-right: 20px
+    flex: 1
+  .product-content
+    flex: 2
+  .product-menu-list
+    text-align: center
+    padding: 15px 0
+    border: 1px solid $colorPrimaryLight
+    &.active
+      background: $colorPrimaryLight
+  .product-item-list
+    // display: flex
+  .product-item
+    display: inline-block
+    width: calc(50% - 20px)
+    margin-bottom: 20px
+    &:nth-child(odd)
+      margin-right: 20px
+  .page-label-list
+    display: flex
+    justify-content: flex-end
+
+
+@media (max-width: 414px)
+  .banner
+    height: 277px
+    margin-bottom: 0
+    .img
+      background-position-x: right
+    .text
+      width: 59px
+      top: 30px
+      right: 30px
+  .product
+    flex-direction: column
+    .product-menu
+      width: 100%
+    .product-item-list
+      padding: 0 30px
+    .product-item
+      width: 100%
+      margin-bottom: 30px
+      &:nth-child(odd)
+        margin-right: 0
+    .page-label-list
+      justify-content: center
+    
